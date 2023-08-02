@@ -2,11 +2,11 @@ const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
 
 /** @type {typeof import('sequelize').Model} */
-const user = require("../../models").User;
+const user = require("../../models").user;
 
 /** @type {(req: import('express').Request, res: import('express').Response)=>void} */
 const userLogin = async (req, res) => {
-  /** @type {{usernameOrEmail:string|null, password:string}} */
+  /** @type {{usernameOrEmail:string, password:string}} */
   const data = req.body;
   console.log(data);
   try {

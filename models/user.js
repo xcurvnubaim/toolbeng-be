@@ -2,7 +2,7 @@
 
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class user extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,35 +12,57 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  User.init(
+  user.init(
     {
       username: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
+        type: DataTypes.STRING(16),
+        // unique: {
+        //   args: true,
+        //   msg: "username already used"
+        // },
+        // allowNull: false,
       },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      fullname: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      phonenumber: {
+        type: DataTypes.STRING(15),
+        // allowNull: false,
+        // unique: {
+        //   args: true,
+        //   msg: "phone number already used"
+        // },
       },
       email: {
         type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
+        // validate :{
+        //   isEmail : true
+        // },
+        // unique: {
+        //   args: true,
+        //   msg: "email already used"
+        // },
+        // allowNull: false,
       },
-      roles: {
+      is_verified : {
+        type : DataTypes.BOOLEAN,
+        // allowNull: false
+      },
+      password: {
+        type: DataTypes.STRING,
+        // allowNull: false,
+      },
+      role: {
         type: DataTypes.STRING(1),
-        allowNull: false
-      }
+        // allowNull: false
+      },
+      fullname: {
+        type: DataTypes.STRING,
+        // allowNull: false,
+      },
     },
     {
       sequelize,
-      modelName: "User",
+      modelName: "user",
+      paranoid: true,
     }
   );
-  return User;
+  return user;
 };  
