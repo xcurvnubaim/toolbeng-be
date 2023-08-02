@@ -1,5 +1,15 @@
 # toolbeng-be
 
+running migration to create table
+```
+npm run migrate
+```
+
+running server
+```
+npm start
+```
+
 Route
 - /login
   - POST
