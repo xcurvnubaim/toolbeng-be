@@ -9,6 +9,8 @@ router.get('/', (req, res)=>{
 
 //signup route
 router.post('/signup', userSignup);
-//login rroute
+//login route
 router.post('/login', userLogin);
+
+
 module.exports = router;
