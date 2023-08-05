@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { Op } = require("sequelize");
 
 /** @type {typeof import('sequelize').Model} */
-const user = require("../../models").User;
+const user = require("../../models").user;
 
 /** @type {(req: import('express').Request, res: import('express').Response)=>void} */
 const userLogin = async (req, res) => {
