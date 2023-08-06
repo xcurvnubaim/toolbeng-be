@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   user.init(
     {
-      username: {
-        type: DataTypes.STRING(16),
-        // unique: {
-        //   args: true,
-        //   msg: "username already used"
-        // },
-        // allowNull: false,
-      },
+      // username: {
+      //   type: DataTypes.STRING(16),
+      //   // unique: {
+      //   //   args: true,
+      //   //   msg: "username already used"
+      //   // },
+      //   // allowNull: false,
+      // },
       phonenumber: {
         type: DataTypes.STRING(15),
         // allowNull: false,

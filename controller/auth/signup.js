@@ -7,23 +7,21 @@ const user = require('../../models').user;
 const userSignup = async (req, res) => {
   /** 
    * @type {{
-   * username:string, 
+   * fullname:string, 
    * phoneNumber:string,
    * email:string, 
    * is_verified:boolean,
-   * password:string, 
+   * password:string,
    * role:string
-   * fullname:string, 
    * }} 
    */
-  const data = req.body;
-
-  // hashing password
-  const hashedPass = await bcrypt.hash(data.password,10);
-
-  data.password = hashedPass;
+  const data = {...req.body, is_verified:false, role:'U'};
 
   try {
+    // hashing password
+    data.password = await bcrypt.hash(data.password,10);
+
+    // insert data
     await user.create(data);
     res.status(200).send();
   } catch (e) {
