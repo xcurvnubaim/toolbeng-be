@@ -19,8 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     customer_latitude: DataTypes.FLOAT,
     customer_longitude: DataTypes.FLOAT,
-    status: DataTypes.STRING,
-    total_amount: DataTypes.BIGINT
+    categery: DataTypes.BOOLEAN,
+    tipe_kendaraan: DataTypes.STRING,
+    nomor_polisi: DataTypes.STRING,
+    kondisi: DataTypes.STRING,
+    keterangan: DataTypes.TEXT,
+    ban_bocor: DataTypes.BOOLEAN,
+    status: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'order',

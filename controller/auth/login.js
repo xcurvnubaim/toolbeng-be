@@ -1,31 +1,24 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { Op } = require("sequelize");
 
 /** @type {typeof import('sequelize').Model} */
 const user = require("../../models").user;
 
 /** @type {(req: import('express').Request, res: import('express').Response)=>void} */
 const userLogin = async (req, res) => {
-  /** @type {{usernameOrEmail:string|null, password:string}} */
-  const data = req.body;
-  console.log(data);
+  const {email, password} = req.body;
   try {
     const result = await user.findOne({
-      attributes: ["id", "username", "password"], 
+      attributes: ["id", "role", "password"], 
       where: {
-        [Op.or]: [
-          { username: data.usernameOrEmail },
-          { email: data.usernameOrEmail },
-        ],
+        email
       },
     });
     if (result != null) {
-      const hashedPass = result.dataValues.password;
-      if (await bcrypt.compare(data.password, hashedPass)) {
+      if (await bcrypt.compare(password, result.dataValues.password)) {
         const tokenData = {
           id: result.dataValues.id,
-          username: result.dataValues.username,
+          role: result.dataValues.role,
         };
         const token = jwt.sign(tokenData, "secret_key"); 
         res.status(200).json({ token }); 
@@ -33,7 +26,7 @@ const userLogin = async (req, res) => {
         res.status(401).json({ error: "Wrong password" });
       }
     } else {
-      res.status(401).json({ error: "Username/email not found" });
+      res.status(401).json({ error: "email not found" });
     }
   } catch (e) {
     console.log(e);

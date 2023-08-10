@@ -1,5 +1,13 @@
 # toolbeng-be
 
+edit enivironment variable in .env.example and rename to .env
+```
+MYSQL_HOST= <mysql host>
+MYSQL_USER= <mysql user>
+MYSQL_PASS= <mysql password user>
+MYSQL_DB=   <mysql database>
+```
+
 running migration to create table
 ```
 npm run migrate
@@ -14,13 +22,14 @@ Route
 - /login
   - POST
     - input:
-      - usernameOrEmail : string
+      - email : string
       - password : string
+    - output:
+      - token
 - /sigup
   - POST
     - input:
-      - username:string, 
-      - password:string, (not null)
-      - fullname:string, (not null)
+      - fullname:string, 
+      - phonenumber:string,
+      - password:string, 
       - email:string, (must valid email)
-      - roles:string (u = user, b = bengkel)

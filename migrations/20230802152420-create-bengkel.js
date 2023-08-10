@@ -22,6 +22,10 @@ module.exports = {
           key: "id"
         }
       },
+      isOpen: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
       lattitude: {
         type: Sequelize.FLOAT
       },

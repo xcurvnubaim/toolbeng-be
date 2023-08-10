@@ -13,31 +13,56 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "users",
-          key: "id"
-        }
+          key: "id",
+        },
       },
       bengkel_id: {
         type: Sequelize.INTEGER,
         references: {
           model: "bengkels",
-          key: "id"
-        }
+          key: "id",
+        },
+      },
+      customer_latitude: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
+      customer_longitude: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
+      category: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       location: {
         type: Sequelize.STRING,
       },
-      customer_latitude: {
-        type: Sequelize.FLOAT,
+      tipe: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
-      customer_longitude: {
-        type: Sequelize.FLOAT,
+      nomor_polisi: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      kondisi: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      keterangan: {
+        type: Sequelize.TEXT,
+      },
+      ban_bocor: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       status: {
         type: Sequelize.STRING,
       },
-      total_amount: {
-        type: Sequelize.BIGINT,
-      },
+      // total_amount: {
+      //   type: Sequelize.BIGINT,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

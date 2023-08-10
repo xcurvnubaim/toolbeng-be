@@ -10,15 +10,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(20),
-        allowNull : false,
-        unique : true
-      },
       phonenumber: {
         type: Sequelize.STRING(15),
         allowNull: false,
-        unique : true
+        // unique : true
       },
       email : {
         type:Sequelize.STRING,
@@ -38,7 +33,7 @@ module.exports = {
         allowNull: false
       },
       fullname: {
-        type : Sequelize.STRING(60),
+        type : Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

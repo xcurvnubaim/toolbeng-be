@@ -14,49 +14,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   user.init(
     {
-      username: {
-        type: DataTypes.STRING(16),
-        // unique: {
-        //   args: true,
-        //   msg: "username already used"
-        // },
-        // allowNull: false,
-      },
-      phonenumber: {
-        type: DataTypes.STRING(15),
-        // allowNull: false,
-        // unique: {
-        //   args: true,
-        //   msg: "phone number already used"
-        // },
-      },
-      email: {
-        type: DataTypes.STRING,
-        // validate :{
-        //   isEmail : true
-        // },
-        // unique: {
-        //   args: true,
-        //   msg: "email already used"
-        // },
-        // allowNull: false,
-      },
-      is_verified : {
-        type : DataTypes.BOOLEAN,
-        // allowNull: false
-      },
-      password: {
-        type: DataTypes.STRING,
-        // allowNull: false,
-      },
-      role: {
-        type: DataTypes.STRING(1),
-        // allowNull: false
-      },
-      fullname: {
-        type: DataTypes.STRING,
-        // allowNull: false,
-      },
+      fullname: DataTypes.STRING,
+      phonenumber: DataTypes.STRING,
+      email: DataTypes.STRING,
+      is_verified : DataTypes.BOOLEAN,
+      password: DataTypes.STRING,
+      role: DataTypes.STRING
     },
     {
       sequelize,
