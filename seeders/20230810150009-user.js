@@ -123,7 +123,7 @@ module.exports = {
           is_verified: false,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -134,7 +134,7 @@ module.exports = {
           is_verified: true,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -145,7 +145,7 @@ module.exports = {
           is_verified: false,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -156,7 +156,7 @@ module.exports = {
           is_verified: true,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -167,7 +167,7 @@ module.exports = {
           is_verified: false,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -178,7 +178,7 @@ module.exports = {
           is_verified: true,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -189,7 +189,7 @@ module.exports = {
           is_verified: false,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -200,7 +200,7 @@ module.exports = {
           is_verified: true,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -211,7 +211,7 @@ module.exports = {
           is_verified: false,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -222,7 +222,7 @@ module.exports = {
           is_verified: true,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",
-          role: "u",
+          role: "b",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
