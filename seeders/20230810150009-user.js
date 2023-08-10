@@ -75,7 +75,7 @@ module.exports = {
         {
           fullname: "Michael Brown",
           phonenumber: "9999999999",
-          email: "michaelB@example.com",
+          email: "michaelb@example.com",
           is_verified: false,
           password:
             "$2b$10$71uvnQ6ARGGw3Y5jwmQa3OBDVHGzxdbBJNO2VCi6Pfx.h/a1XAljO",

@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
-      lattitude: {
+      latitude: {
         type: Sequelize.FLOAT
       },
       longitude: {
