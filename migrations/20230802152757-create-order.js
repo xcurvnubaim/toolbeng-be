@@ -27,6 +27,9 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
+      location: {
+        type: Sequelize.STRING,
+      },
       customer_longitude: {
         type: Sequelize.FLOAT,
         allowNull: false
@@ -35,10 +38,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
-      location: {
-        type: Sequelize.STRING,
-      },
-      tipe: {
+      tipe_kendaraan: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -60,9 +60,6 @@ module.exports = {
       status: {
         type: Sequelize.STRING,
       },
-      // total_amount: {
-      //   type: Sequelize.BIGINT,
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
