@@ -1,6 +1,6 @@
 
 /** @type {typeof import('sequelize').Model} */
-const order = require('../../models').order;
+const Order = require('../../models').order;
 
 /** @type {(req: import('express').Request, res: import('express').Response)=>void} */
 const chooseBengkel = async (req, res) => {
