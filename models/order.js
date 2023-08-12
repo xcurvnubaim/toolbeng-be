@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     customer_latitude: DataTypes.FLOAT,
     customer_longitude: DataTypes.FLOAT,
-    categery: DataTypes.BOOLEAN,
+    category: DataTypes.BOOLEAN,
     tipe_kendaraan: DataTypes.STRING,
     nomor_polisi: DataTypes.STRING,
     kondisi: DataTypes.STRING,
