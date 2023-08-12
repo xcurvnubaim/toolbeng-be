@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
     isOpen: DataTypes.BOOLEAN,
-    lattitude: DataTypes.FLOAT,
+    latitude: DataTypes.FLOAT,
     longitude: DataTypes.FLOAT
   }, {
     sequelize,
