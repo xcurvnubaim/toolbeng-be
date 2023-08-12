@@ -21,7 +21,7 @@ const createOrder = async (req, res) => {
     *  status: String
     * }}
     */
-    const data = req.body;
+    const data = {...req.body, status:"Pending"};
 
     const result = await Order.create(data);
 
