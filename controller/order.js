@@ -12,7 +12,7 @@ const createOrder = async (req, res) => {
     *  location: String,
     *  customer_latitude: Number,
     *  customer_longitude: Number,
-    *  categery: Boolean,
+    *  category: Boolean,
     *  tipe_kendaraan: String,
     *  nomor_polisi: String,
     *  kondisi: String,
