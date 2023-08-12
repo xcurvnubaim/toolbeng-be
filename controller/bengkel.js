@@ -6,12 +6,15 @@ const order = require('../../models').order;
 const chooseBengkel = async (req, res) => {
   
   try {
-    const { user_id, bengkel_id } = req.body;
+    const { user_id, bengkel_id, latitude, longitude, additional_info, biaya } = req.body;
 
     const order = await Order.create({
       user_id,
       bengkel_id,
+      latitude,
+      longitude,
       additional_info,
+      biaya,
       // ada lagikah? 
     });
 
