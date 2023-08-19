@@ -6,6 +6,7 @@ const createOrder = async (req, res) => {
   
   try {
     /**
+     * data from request body
     * @type {{
     *  user_id: Number,
     *  bengkel_id: Number,
@@ -21,8 +22,8 @@ const createOrder = async (req, res) => {
     *  status: String
     * }}
     */
-    const data = {...req.body, status:"Pending"};
-
+    const data = {...req.body,user_id: req.data.id, status:"Pending"};
+    
     const result = await Order.create(data);
 
     res.status(201).json({ message: 'Bengkel chosen successfully', result });
