@@ -20,10 +20,10 @@ module.exports = {
         allowNull: false,
         unique : true
       },
-      is_verified : {
-        type : Sequelize.BOOLEAN,
-        allowNull: false
-      },
+      // is_verified : {
+      //   type : Sequelize.BOOLEAN,
+      //   allowNull: false
+      // },
       password: {
         type: Sequelize.STRING,
         allowNull : false
