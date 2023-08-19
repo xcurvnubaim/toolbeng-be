@@ -15,12 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   chat.init({
     order_id: DataTypes.INTEGER,
-    sender_id: DataTypes.INTEGER,
-    receiver_id: DataTypes.INTEGER,
+    sendByCust: DataTypes.BOOLEAN,
     message: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'chat',
+    timestamps: true,
+    updatedAt: false,
     paranoid: true,
   });
   return chat;

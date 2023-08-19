@@ -13,31 +13,17 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "orders",
-          key: "id"
-        }
+          key: "id",
+        },
       },
-      sender_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "users",
-          key: "id"
-        }
-      },
-      receiver_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "users",
-          key: "id"
-        }
+      sendByCust: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       message: {
         type: Sequelize.TEXT,
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
