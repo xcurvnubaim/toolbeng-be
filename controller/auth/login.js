@@ -20,7 +20,7 @@ const userLogin = async (req, res) => {
           id: result.dataValues.id,
           role: result.dataValues.role,
         };
-        const token = jwt.sign(tokenData, process.env.ACCESS_TOKEN, {expiresIn: '7d'}); 
+        const token = jwt.sign(tokenData, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '7d'}); 
         res.status(200).json({ token }); 
       } else {
         res.status(401).json({ error: "Wrong password" });

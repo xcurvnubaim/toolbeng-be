@@ -23,11 +23,11 @@ const userSignup = async (req, res) => {
 
     // insert data
     await user.create(data);
-    res.status(200).send();
+    res.status(200).json({message: "signup successfully"});
   } catch (e) {
     console.log(e);
-    if(e.errors) res.status(400).send(e.errors[0].message);
-    else res.status(500).send(e)
+    if(e.errors) res.status(400).json({error : e.errors[0].message});
+    else res.status(500).json({error : e})
   }
 }
 

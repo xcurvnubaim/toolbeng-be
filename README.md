@@ -18,18 +18,4 @@ running server
 npm start
 ```
 
-Route
-- /login
-  - POST
-    - input:
-      - email : string
-      - password : string
-    - output:
-      - token
-- /sigup
-  - POST
-    - input:
-      - fullname:string, 
-      - phonenumber:string,
-      - password:string, 
-      - email:string, (must valid email)
+https://www.postman.com/warped-desert-825105/workspace/toolbeng/documentation/28625531-47075166-163f-4374-9177-b4b61910b3c4
