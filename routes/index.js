@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { userLogin } = require('../controller/auth/login');
 const { userSignup } = require('../controller/auth/signup');
 const { verifyToken } = require('../controller/auth/middleware');
-const { createOrder } = require('../controller/order');
+const { createOrder, getOrder } = require('../controller/order');
 const { getBengkel, createBengkel } = require('../controller/bengkel');
 
 router.get('/', (req, res) => {
@@ -14,7 +14,9 @@ router.post('/signup', userSignup);
 //login route
 router.post('/login', userLogin);
 //createOrder route
-router.post('/order',authenticateToken, createOrder);
+router.post('/order',verifyToken, createOrder);
+//get Order route
+router.get('/order', verifyToken, getOrder);
 
 //protected route
 router.get('/protected-route', verifyToken, (req, res) => {

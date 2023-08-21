@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasOne(models.bengkel, {
+        foreignKey: "user_id"
+      });
     }
   }
   user.init(
