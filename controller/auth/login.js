@@ -21,18 +21,18 @@ const userLogin = async (req, res) => {
         email,
       },
     });
-    console.log(result.dataValues);
     if (result != null) {
-      if (await bcrypt.compare(password, result.dataValues.password)) {
+      if (await bcrypt.compare(password, result.password)) {
         const tokenData = {
-          id: result.dataValues.id,
-          role: result.dataValues.role,
-          bengkel_id: result.dataValues.bengkel?.id,
+          id: result.id,
+          role: result.role,
+          bengkel_id: result.bengkel?.id,
         };
+        const MAX_AGE = 7*24*3600*1000;
         const token = jwt.sign(tokenData, process.env.ACCESS_TOKEN_SECRET, {
-          expiresIn: "7d",
+          expiresIn: MAX_AGE,
         });
-        res.status(200).json({ tokenData, token });
+        res.cookie('jwt-access',token,{maxAge: MAX_AGE, secure: true, sameSite: 'none', httpOnly: true}).status(200).json({ tokenData });
       } else {
         res.status(401).json({ error: "Wrong password" });
       }
