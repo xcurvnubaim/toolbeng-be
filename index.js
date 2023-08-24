@@ -25,21 +25,21 @@ const io = socketIo(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log("A user connected");
+  // console.log("A user connected");
 
   socket.on("send message", (data) => {
-    console.log(data)
+    // console.log(data)
     socket.to(data.room).emit("chat message", data.msg);
   });
 
   socket.on('join-room', (room)=> {
-      console.log(room);
+      // console.log(room);
       socket.join(room);
   })
 
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
-  });
+  // socket.on("disconnect", () => {
+  //   console.log("User disconnected");
+  // });
 });
 
 const routes = require("./routes");
