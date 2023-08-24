@@ -6,6 +6,7 @@ const { createOrder, getOrder } = require('../controller/order');
 const { getBengkel, createBengkel } = require('../controller/bengkel');
 const { createContactUs } = require('../controller/contactUs');
 const { changePassword, changeProfile } = require('../controller/user');
+const { createChat, getChat } = require('../controller/chat');
 
 router.get('/', (req, res) => {
   res.status(200).send("Hello world!");
@@ -38,5 +39,10 @@ router.post('/contact-us', createContactUs);
 router.post('/user/update-pass', verifyToken, changePassword);
 //Update profile
 router.post('/user/update-profile', verifyToken, changeProfile);
+
+//Send chat route
+router.post('/chat', createChat);
+//get chat route
+router.get('/chat/:orderId', getChat);
 
 module.exports = router;
