@@ -19,9 +19,12 @@ const server = app.listen(5000, () => {
 const socketIo = require("socket.io");
 const io = socketIo(server, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"]
-  }
+    origin: process.env.FE_BASE_URL,
+    methods: ["GET", "POST"],
+    transports: ["websocket", "polling"],
+    credentials: true,
+  },
+  allowEIO3: true
 });
 
 io.on("connection", (socket) => {
@@ -32,10 +35,10 @@ io.on("connection", (socket) => {
     socket.to(data.room).emit("chat message", data.msg);
   });
 
-  socket.on('join-room', (room)=> {
-      // console.log(room);
-      socket.join(room);
-  })
+  socket.on("join-room", (room) => {
+    // console.log(room);
+    socket.join(room);
+  });
 
   // socket.on("disconnect", () => {
   //   console.log("User disconnected");
