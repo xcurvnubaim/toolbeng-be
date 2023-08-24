@@ -28,11 +28,19 @@ const userLogin = async (req, res) => {
           role: result.role,
           bengkel_id: result.bengkel?.id,
         };
-        const MAX_AGE = 7*24*3600*1000;
+        const MAX_AGE = 7 * 24 * 3600 * 1000;
         const token = jwt.sign(tokenData, process.env.ACCESS_TOKEN_SECRET, {
           expiresIn: MAX_AGE,
         });
-        res.cookie('jwt-access',token,{maxAge: MAX_AGE, secure: true, sameSite: 'none', httpOnly: true}).status(200).json({ tokenData });
+        res
+          .cookie("jwt-access", token, {
+            maxAge: MAX_AGE,
+            // secure: true,
+            sameSite: "none",
+            httpOnly: true,
+          })
+          .status(200)
+          .json({ tokenData });
       } else {
         res.status(401).json({ error: "Wrong password" });
       }
