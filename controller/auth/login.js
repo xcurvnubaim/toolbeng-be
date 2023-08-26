@@ -10,7 +10,7 @@ const userLogin = async (req, res) => {
   const { email, password } = req.body;
   try {
     const result = await user.findOne({
-      attributes: ["id", "role", "password", "fullname"],
+      attributes: ["id", "role", "password"],
       include: [
         {
           model: bengkel,
@@ -26,7 +26,6 @@ const userLogin = async (req, res) => {
         const tokenData = {
           id: result.id,
           role: result.role,
-          name: result.fullname,
           bengkel_id: result.bengkel?.id,
         };
         const MAX_AGE = 7 * 24 * 3600 * 1000;
@@ -36,7 +35,7 @@ const userLogin = async (req, res) => {
         res
           .cookie("jwt-access", token, {
             maxAge: MAX_AGE,
-            secure: true,
+            // secure: true,
             sameSite: "none",
             httpOnly: true,
           })
