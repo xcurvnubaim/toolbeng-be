@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.FE_BASE_URL],
+    origin: process.env.FE_BASE_URL,
   })
 );
 
