@@ -12,7 +12,7 @@ app.use(
   })
 );
 
-const server = app.listen(5000, () => {
+const server = app.listen(3000, () => {
   console.log("Listening http://localhost:5000");
 });
 
