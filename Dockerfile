@@ -27,8 +27,6 @@ RUN npm ci
 # Copy application code
 COPY --link . .
 
-COPY .env .env
-
 # Final stage for app image
 FROM base
 
