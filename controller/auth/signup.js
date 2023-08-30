@@ -15,7 +15,7 @@ const userSignup = async (req, res) => {
    * role:string
    * }} 
    */
-  const data = {...req.body, is_verified:false, role:'U'};
+  const data = {...req.body, role:'U'};
 
   try {
     // hashing password
