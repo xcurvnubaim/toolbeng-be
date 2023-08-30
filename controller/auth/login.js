@@ -34,14 +34,8 @@ const userLogin = async (req, res) => {
           expiresIn: MAX_AGE,
         });
         res
-          .cookie("jwt-access", token, {
-            maxAge: MAX_AGE,
-            secure: true,
-            sameSite: "none",
-            httpOnly: true,
-          })
           .status(200)
-          .json({ tokenData });
+          .json({message:"Login Credentials success", result: {...tokenData, token} });
       } else {
         res.status(401).json({ error: "Wrong password" });
       }

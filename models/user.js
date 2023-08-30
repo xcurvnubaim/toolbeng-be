@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasOne(models.bengkel, {
-        foreignKey: "user_id"
+        foreignKey: "user_id",
       });
     }
   }
@@ -22,7 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       // is_verified : DataTypes.BOOLEAN,
       password: DataTypes.STRING,
-      role: DataTypes.STRING
+      external_type: DataTypes.STRING,
+      external_id: DataTypes.STRING,
+      role: DataTypes.STRING,
     },
     {
       sequelize,
@@ -31,4 +33,4 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   return user;
-};  
+};

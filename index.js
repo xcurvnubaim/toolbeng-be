@@ -13,7 +13,7 @@ app.use(
 );
 
 const server = app.listen(3000, () => {
-  console.log("Listening http://localhost:5000");
+  console.log("Listening http://localhost:3000");
 });
 
 const socketIo = require("socket.io");
