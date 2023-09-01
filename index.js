@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://toolbeng-frontend.vercel.app",
+    origin: "https://www.toolbeng.id",
   })
 );
 
@@ -19,7 +19,7 @@ const server = app.listen(3000, () => {
 const socketIo = require("socket.io");
 const io = socketIo(server, {
   cors: {
-    origin: "https://toolbeng-frontend.vercel.app",
+    origin: "https://www.toolbeng.id",
     methods: ["GET", "POST"],
     transports: ["websocket", "polling"],
     credentials: true,
