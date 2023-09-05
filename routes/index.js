@@ -21,9 +21,12 @@ router.post("/login", userLogin);
 //oauth route
 router.post("/oauth/google", gAuth);
 //createOrder route
-router.post("/order", verifyToken, createOrder);
+// router.post("/order", verifyToken, createOrder);
+router.post("/order", createOrder);
 //get Order route
-router.get("/order", verifyToken, getOrder);
+// router.get("/order", verifyToken, getOrder);
+router.get("/order", getOrder);
+
 
 //protected route
 router.get("/protected-route", verifyToken, (req, res) => {
