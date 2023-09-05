@@ -22,7 +22,9 @@ const createOrder = async (req, res) => {
      *  status: String
      * }}
      */
-    const data = { ...req.body, user_id: req.user.id, status: "Pending" };
+    // const data = { ...req.body, user_id: req.user.id, status: "Pending" };
+    const data = { ...req.body, status: "Pending" };
+
 
     const result = await Order.create(data);
 
