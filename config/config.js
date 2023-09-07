@@ -21,6 +21,6 @@ module.exports =
     "password": process.env.MYSQL_PASS,
     "database": process.env.MYSQL_DB,
     "host": process.env.MYSQL_HOST,
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }
