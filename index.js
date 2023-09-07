@@ -8,18 +8,18 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.FE_BASE_URL],
+    origin: "https://www.toolbeng.id",
   })
 );
 
 const server = app.listen(3000, () => {
-  console.log("Listening http://localhost:5000");
+  console.log("Listening http://localhost:3000");
 });
 
 const socketIo = require("socket.io");
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FE_BASE_URL,
+    origin: "https://www.toolbeng.id",
     methods: ["GET", "POST"],
     transports: ["websocket", "polling"],
     credentials: true,
