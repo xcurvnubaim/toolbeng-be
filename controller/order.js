@@ -38,13 +38,24 @@ const getOrder = async (req, res) => {
   try {
     if (req.user.role == "U") {
       const result = await Order.findAll({
-        attributes: ['location', 'customer_latitude', 'customer_longitude',
-                      'category', 'tipe_kendaraan', 'nomor_polisi', 'kondisi', 'keterangan',
-                      'ban_bocor', 'status', 'createdAt'],
+        attributes: [
+          "id",
+          "location",
+          "customer_latitude",
+          "customer_longitude",
+          "category",
+          "tipe_kendaraan",
+          "nomor_polisi",
+          "kondisi",
+          "keterangan",
+          "ban_bocor",
+          "status",
+          "createdAt",
+        ],
         include: {
           model: bengkel,
           required: true,
-          attributes: ['name', 'address', 'latitude', 'longitude']
+          attributes: ["name", "address", "latitude", "longitude"],
         },
         where: { user_id: req.user.id },
       });
@@ -52,22 +63,50 @@ const getOrder = async (req, res) => {
       else res.status(404).json({ message: "order not found" });
     } else if (req.user.role == "B") {
       const result = await Order.findAll({
-        attributes: ['location', 'customer_latitude', 'customer_longitude',
-                      'category', 'tipe_kendaraan', 'nomor_polisi', 'kondisi', 'keterangan',
-                      'ban_bocor', 'status', 'createdAt'],
+        attributes: [
+          "id",
+          "location",
+          "customer_latitude",
+          "customer_longitude",
+          "category",
+          "tipe_kendaraan",
+          "nomor_polisi",
+          "kondisi",
+          "keterangan",
+          "ban_bocor",
+          "status",
+          "createdAt",
+        ],
         include: {
           model: user,
           required: true,
-          attributes: ['fullname', 'phonenumber', 'email']
-        }, 
+          attributes: ["fullname", "phonenumber", "email"],
+        },
         where: { bengkel_id: req.user.bengkel_id },
+        order: [["id", "DESC"]],
       });
       if (result.length) res.status(200).json({ result });
       else res.status(404).json({ message: "order not found" });
-    } 
-    else res.sendStatus(400);
+    } else res.sendStatus(400);
   } catch (error) {
     console.log(error);
+  }
+};
+
+const updateStatusOrder = async (req, res) => {
+  try {
+    await user.update(
+      { status: req.body.status },
+      {
+        where: {
+          id: req.user.id,
+        },
+      }
+    );
+    res.status(200).json({ message: "Update user data success" });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ message: "Update user data failed" });
   }
 };
 
