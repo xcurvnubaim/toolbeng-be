@@ -8,7 +8,7 @@ const user = require("../models").user;
 const getBengkel = async (req, res) => {
   try {
     const result = await bengkel.findAll({
-      attributes: ["name", "address", "latitude", "longitude"],
+      attributes: ["id","name", "address", "latitude", "longitude"],
       include: [
         {
           model: user,
