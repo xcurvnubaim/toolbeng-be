@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { userLogin } = require("../controller/auth/login");
 const { userSignup } = require("../controller/auth/signup");
 const { verifyToken } = require("../controller/auth/middleware");
-const { createOrder, getOrder } = require("../controller/order");
+const { createOrder, getOrder, getOrderById } = require("../controller/order");
 const { getBengkel, createBengkel } = require("../controller/bengkel");
 const { createContactUs } = require("../controller/contactUs");
 const { changePassword, changeProfile } = require("../controller/user");
@@ -24,6 +24,7 @@ router.post("/oauth/google", gAuth);
 router.post("/order", verifyToken, createOrder);
 //get Order route
 router.get("/order", verifyToken, getOrder);
+router.get("/order/:id", getOrderById);
 
 //protected route
 router.get("/protected-route", verifyToken, (req, res) => {
@@ -50,5 +51,8 @@ router.get("/chat/:orderId", getChat);
 
 //get Biaya route
 router.get("/biaya/:orderId", getBiaya);
+
+// const uploadRouter = require('./upload');
+// router.get("/upload", uploadRouter);
 
 module.exports = router;

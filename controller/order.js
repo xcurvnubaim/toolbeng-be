@@ -93,6 +93,43 @@ const getOrder = async (req, res) => {
   }
 };
 
+/** @type {(req: import('express').Request, res: import('express').Response)=>void} */
+const getOrderById = async (req, res) => {
+  try {
+    const result = await Order.findOne({
+      attributes: [
+        "id",
+        "location",
+        "customer_latitude",
+        "customer_longitude",
+        "category",
+        "tipe_kendaraan",
+        "nomor_polisi",
+        "kondisi",
+        "keterangan",
+        "ban_bocor",
+        "status",
+        "createdAt",
+      ],
+      include: {
+        model: user,
+        required: true,
+        attributes: ["fullname", "phonenumber", "email"],
+      },
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(201).json({ message: "Get Order successfully", result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: "Internal Server Error",
+      message: error.message,
+    });
+  }
+}
+
 const updateStatusOrder = async (req, res) => {
   try {
     await user.update(
@@ -113,4 +150,5 @@ const updateStatusOrder = async (req, res) => {
 module.exports = {
   createOrder,
   getOrder,
+  getOrderById
 };
