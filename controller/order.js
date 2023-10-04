@@ -111,11 +111,18 @@ const getOrderById = async (req, res) => {
         "status",
         "createdAt",
       ],
-      include: {
-        model: user,
-        required: true,
-        attributes: ["fullname", "phonenumber", "email"],
-      },
+      include: [
+        {
+          model: user,
+          required: true,
+          attributes: ["fullname", "phonenumber", "email"],
+        },
+        {
+          model: bengkel,
+          required: true,
+          attributes: ["name", "address"],
+        }
+      ],
       where: {
         id: req.params.id,
       },
