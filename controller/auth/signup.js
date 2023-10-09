@@ -15,7 +15,7 @@ const userSignup = async (req, res) => {
    * role:string
    * }} 
    */
-  const data = {...req.body, role:'U'};
+  const data = {...req.body, role:"U"};
 
   try {
     // hashing password
@@ -25,9 +25,9 @@ const userSignup = async (req, res) => {
     await user.create(data);
     res.status(200).json({message: "signup successfully"});
   } catch (e) {
-    console.log(e);
-    if(e.errors) res.status(400).json({error : e.errors[0].message});
-    else res.status(500).json({error : e})
+    // console.log(e);
+    if(e.errors) res.status(400).json({message : e.errors[0].message, error : e.original.sqlMessage});
+    else res.status(500).json({message : "internal server error", error: e.original.sqlMessage})
   }
 }
 
